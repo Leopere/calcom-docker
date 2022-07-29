@@ -26,9 +26,9 @@ For Production, for the time being, please checkout the repository and build/pus
 
 ## Requirements
 
-Make sure you have `docker` & `docker compose` installed on the server / system. Both are installed by most docker utilities, including Docker Desktop and Rancher Desktop.
+Make sure you have `docker` & `docker-compose` installed on the server / system. Both are installed by most docker utilities, including Docker Desktop and Rancher Desktop.
 
-Note: `docker compose` without the hyphen is now the primary method of using docker-compose, per the Docker documentation.
+Note: `docker-compose` without the hyphen is now the primary method of using docker-compose, per the Docker documentation.
 
 ## Getting Started
 
@@ -60,36 +60,36 @@ Note: `docker compose` without the hyphen is now the primary method of using doc
 
     a) If hosting elsewhere, configure the `DATABASE_URL` in the .env file, and skip the next step
 
-    b) If a local or temporary database is required, start a local database via docker compose.
+    b) If a local or temporary database is required, start a local database via docker-compose.
 
     ```bash
-    docker compose up -d database
+    docker-compose up -d database
     ```
 
-6. Build Cal.com via docker compose (DOCKER_BUILDKIT=0 must be provided to allow a network bridge to be used at build time. This requirement will be removed in the future)
+6. Build Cal.com via docker-compose (DOCKER_BUILDKIT=0 must be provided to allow a network bridge to be used at build time. This requirement will be removed in the future)
 
     ```bash
-    DOCKER_BUILDKIT=0 docker compose build calcom
+    DOCKER_BUILDKIT=0 docker-compose build calcom
     ```
 
-7. Start Cal.com via docker compose
+7. Start Cal.com via docker-compose
 
     (Most basic users, and for First Run) To run the complete stack, which includes a local Postgres database, Cal.com web app, and Prisma Studio:
 
     ```bash
-    docker compose up -d
+    docker-compose up -d
     ```
 
     To run Cal.com web app and Prisma Studio against a remote database, ensure that DATABASE_URL is configured for an available database and run:
 
     ```bash
-    docker compose up -d calcom studio
+    docker-compose up -d calcom studio
     ```
 
     To run only the Cal.com web app, ensure that DATABASE_URL is configured for an available database and run:
 
     ```bash
-    docker compose up -d calcom
+    docker-compose up -d calcom
     ```
 
     **Note: to run in attached mode for debugging, remove `-d` from your desired run command.**
